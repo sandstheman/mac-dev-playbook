@@ -6,7 +6,7 @@ configure_sudoers: yes
 configure_terminal: yes
 configure_osx: yes
 
-dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
+dotfiles_repo: https://github.com/chrisminton/dotfiles.git
 dotfiles_repo_accept_hostkey: yes
 dotfiles_repo_local_destination: ~/Dropbox/Development/GitHub/dotfiles
 dotfiles_files:
@@ -19,52 +19,55 @@ dotfiles_files:
 homebrew_installed_packages:
   # - ansible # Installed via Pip.
   - autoconf
+  - awscli
+  - bash
   - bash-completion
-  - chromedriver
-  - doxygen
-  - gettext
-  - gifsicle
+  - coreutils
+  - cowsay
+  - direnv
   - git
+  - git-crypt
   - go
   - gpg
   - hub
   - httpie
   - iperf
+  - jq
+  - kubernetes-cli
+  - kubernetes-helm
   - libevent
-  - sqlite
+  - macvim
   - mcrypt
   - nmap
   - node
   - nvm
-  - ssh-copy-id
-  - cowsay
-  - readline
   - openssl
-  - pv
+  - packer
+  - readline
+  - reattach-to-user-namespace
+  - sqlite
+  - ssh-copy-id
+  - terraform
+  - tmux
   - wget
-  - wrk
+  - wireshark
+  - vault
+  - vim
+  - yq
 
 homebrew_taps:
   - homebrew/core
   - caskroom/cask
-  - homebrew/php
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - docker
   - dropbox
-  # - fing # Download link keeps getting changed, d'oh!
-  - firefox
   - google-chrome
   - handbrake
-  - licecap
   - limechat
   - macvim
-  - sequel-pro
-  - skitch
   - slack
-  - sublime-text
-  - transmit
   - vagrant
   - virtualbox
 
