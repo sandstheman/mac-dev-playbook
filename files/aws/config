@@ -1,0 +1,9 @@
+[default]
+region=eu-west-1
+output=json
+
+[profile example]
+region=eu-west-1
+role_arn=
+source_profile=default
+

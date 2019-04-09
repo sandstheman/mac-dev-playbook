@@ -95,9 +95,11 @@ Packages (installed with Homebrew):
 
 [dotfiles](https://github.com/geerlingguy/dotfiles) are also installed into the current user's home directory, including the `.osx` dotfile for configuring many aspects of macOS for better performance and ease of use. You can disable dotfiles management by setting `configure_dotfiles: no` in your configuration.
 
-Finally, there are a few other preferences and settings added on for various apps and services.
+## Additional Configuration and Services
 
-## Future additions
+Visual Studio Code extensions are installed after the brew cask for the editor is installed.
+
+Some initial Vim directories are created for bundling plugins.
 
 ### Things that still need to be done manually
 

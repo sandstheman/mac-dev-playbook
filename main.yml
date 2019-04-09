@@ -43,6 +43,10 @@
       when: configure_osx
       tags: ['osx']
 
+    - include: tasks/aws.yml
+      when: configure_aws
+      tags: ['aws']
+
     - include: tasks/extra-packages.yml
       tags: ['extra-packages']
 
