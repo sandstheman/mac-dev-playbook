@@ -2,22 +2,23 @@
 downloads: ~/.ansible-downloads/
 
 configure_dotfiles: yes
-configure_sudoers: yes
+configure_sudoers: no
 configure_terminal: yes
 configure_osx: yes
+configure_vim: yes
+configure_vscode: yes
 
-dotfiles_repo: https://github.com/chrisminton/dotfiles.git
+dotfiles_repo: "git@github.com:chrisminton/dotfiles.git"
 dotfiles_repo_accept_hostkey: yes
-dotfiles_repo_local_destination: ~/Dropbox/Development/GitHub/dotfiles
+dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
 dotfiles_files:
-  - .bash_profile
   - .gitignore
-  - .inputrc
   - .osx
   - .vimrc
+  - .zshrc
+
 
 homebrew_installed_packages:
-  # - ansible # Installed via Pip.
   - autoconf
   - awscli
   - bash
@@ -27,6 +28,8 @@ homebrew_installed_packages:
   - direnv
   - git
   - git-crypt
+  - git-duet
+  - gnu-tar
   - go
   - gpg
   - hub
@@ -36,18 +39,20 @@ homebrew_installed_packages:
   - kubernetes-cli
   - kubernetes-helm
   - libevent
-  - macvim
   - mcrypt
   - nmap
   - node
   - nvm
   - openssl
   - packer
+  - python3
   - readline
   - reattach-to-user-namespace
+  - remind101/formulae/assume-role
   - sqlite
   - ssh-copy-id
   - terraform
+  - terraform_landscape
   - tmux
   - wget
   - wireshark
@@ -58,18 +63,19 @@ homebrew_installed_packages:
 homebrew_taps:
   - homebrew/core
   - caskroom/cask
+  - git-duet/tap
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - docker
-  - dropbox
+  - firefox
   - google-chrome
   - handbrake
-  - limechat
-  - macvim
+  - iterm2
   - slack
+  - spectacle
   - vagrant
   - virtualbox
+  - visual-studio-code
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
@@ -93,10 +99,24 @@ npm_packages: []
   # - name: webpack
   #   state: present # present/absent/latest, default: present
   #   version: "^2.6" # default: N/A
-pip_packages: []
+pip_packages:
   # - name: mkdocs
   #   state: present # present/absent/latest, default: present
   #   version: "0.16.3" # default: N/A
+  - name: powerline-status
+
+# vim setup
+vim_plugin_dir: ~/.vim/autoload
+
+# vscode setup
+vscode_util: /usr/local/bin/code
+vscode_extensions:
+  - mauve.terraform
+  - ms-kubernetes-tools.vscode-kubernetes-tools
+  - ms-python.python
+  - PeterJausovec.vscode-docker
+  - rebornix.ruby
+  - redhat.vscode-yaml
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []

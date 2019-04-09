@@ -4,18 +4,18 @@
   shell: defaults read com.apple.terminal 'Default Window Settings'
   register: terminal_theme
   changed_when: false
-  always_run: yes
+  check_mode: no
 
 - name: Ensure custom Terminal profile is added.
-  shell: open files/terminal/JJG-Term.terminal
+  shell: open files/terminal/Solarized-Dark-Term.terminal
   changed_when: false
-  when: "'JJG-Term' not in terminal_theme.stdout"
+  when: "'Solarized-Dark-Term' not in terminal_theme.stdout"
 
 # TODO: This doesn't work in Yosemite. Consider a different solution?
 - name: Ensure custom Terminal profile is set as default.
   shell: "{{ item }}"
   with_items:
-    - defaults write com.apple.terminal 'Default Window Settings' -string JJG-Term
-    - defaults write com.apple.terminal 'Startup Window Settings' -string JJG-Term
+    - defaults write com.apple.Terminal.plist "Default Window Settings" "Solarized-Dark-Term"
+    - defaults write com.apple.Terminal.plist "Startup Window Settings" "Solarized-Dark-Term"
   changed_when: false
-  when: "'JJG-Term' not in terminal_theme.stdout"
+  when: "'Solarized-Dark-Term' not in terminal_theme.stdout"

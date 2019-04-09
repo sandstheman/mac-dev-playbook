@@ -1,0 +1,5 @@
+---
+- name: Ensure Vim Autoload directory exists.
+  file:
+    path: "{{ vim_plugin_dir }}"
+    state: directory
