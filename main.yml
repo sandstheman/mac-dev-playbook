@@ -31,6 +31,9 @@
       when: configure_terminal
       tags: ['terminal']
 
+    - include: tasks/chef.yml
+      tags: ['chef']
+
     - include: tasks/vim.yml
       when: configure_vim
       tags: ['vim']
@@ -42,6 +45,9 @@
     - include: tasks/osx.yml
       when: configure_osx
       tags: ['osx']
+
+    - include: tasks/zsh.yml
+      tags: ['zsh']
 
     - include: tasks/aws.yml
       when: configure_aws

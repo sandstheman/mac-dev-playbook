@@ -1,5 +1,6 @@
 ---
 downloads: ~/.ansible-downloads/
+mount_path: /Volumes
 
 # set to yes to run certain tasks
 configure_aws: yes
@@ -69,9 +70,12 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - firefox
-  #- google-chrome
+  - google-chrome
+  - gpg-suite
+  - gpgtools
   - handbrake
   - iterm2
+  - microsoft-teams
   - slack
   - spectacle
   - vagrant
@@ -104,7 +108,12 @@ pip_packages:
   # - name: mkdocs
   #   state: present # present/absent/latest, default: present
   #   version: "0.16.3" # default: N/A
+  - name: boto3
   - name: powerline-status
+  - name: pylint
+
+# Chef
+chefdk_version: 2.5.3
 
 # vim setup
 vim_plugin_dir: ~/.vim/autoload
@@ -112,12 +121,18 @@ vim_plugin_dir: ~/.vim/autoload
 # vscode setup
 vscode_util: /usr/local/bin/code
 vscode_extensions:
+  - bibhasdn.unique-lines
+  - davidanson.vscode-markdownlint
+  - eriklynd.json-tools
+  - jmmeessen.jenkins-declarative-support
   - mauve.terraform
   - ms-kubernetes-tools.vscode-kubernetes-tools
   - ms-python.python
+  - pendrica.chef
   - PeterJausovec.vscode-docker
   - rebornix.ruby
   - redhat.vscode-yaml
+  - timonwong.shellcheck
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
