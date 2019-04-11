@@ -70,12 +70,15 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
+  - docker
   - firefox
   - google-chrome
   - gpg-suite
   - gpgtools
   - handbrake
   - iterm2
+  - keybase
+  - macpass # KeyPass Mac port
   - microsoft-teams
   - slack
   - spectacle
