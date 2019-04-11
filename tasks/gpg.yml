@@ -1,0 +1,17 @@
+---
+- name: check if pinentry exists from brew
+  stat: 
+    path: /usr/local/bin/pinentry-mac
+  register: pinentry_exists
+
+- name: ensure pinentry is set
+  lineinfile:
+    path: ~/.gnupg/gpg-agent.conf
+    line: 'pinentry-program /usr/local/bin/pinentry-mac'
+    create: yes
+  register: agent_update 
+  when: pinentry_exists.stat.exists == true
+
+- name: restart gnupg agent
+  command: "gpgconf --kill gpg-agent"
+  when: agent_update is changed

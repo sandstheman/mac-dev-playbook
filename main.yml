@@ -46,6 +46,9 @@
       when: configure_osx
       tags: ['osx']
 
+    - include: tasks/gpg.yml
+      tags: ['gpg']
+
     - include: tasks/zsh.yml
       tags: ['zsh']
 
