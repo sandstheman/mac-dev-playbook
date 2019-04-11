@@ -34,7 +34,6 @@ Not everyone's development environment and preferred software configuration is t
 You can override any of the defaults configured in `default.config.yml` by creating a `config.yml` file and setting the overrides in that file. For example, you can customize the installed packages and apps with something like:
 
     homebrew_installed_packages:
-      - cowsay
       - git
       - go
 
@@ -105,13 +104,10 @@ Some initial Vim directories are created for bundling plugins.
 
 It's my hope that I can get the rest of these things wrapped up into Ansible playbooks soon, but for now, these steps need to be completed manually (assuming you already have Xcode and Ansible installed, and have run this playbook).
 
-  1. Set Solarized-Dark-Term as the default Terminal theme (it's installed, but not set as default automatically).
-  2. Install [Sublime Package Manager](http://sublime.wbond.net/installation).
-  3. Install all the apps that aren't yet in this setup (see below).
-  4. Remap Caps Lock to Escape (requires macOS Sierra 10.12.1+).
-  5. Set trackpad tracking rate.
-  6. Set mouse tracking rate.
-  7. Configure extra Mail and/or Calendar accounts (e.g. Google, Exchange, etc.).
+  1. Install all the apps that aren't yet in this setup (see below).
+  2. Set trackpad tracking rate.
+  3. Set mouse tracking rate.
+  4. Configure extra Mail and/or Calendar accounts (e.g. Google, Exchange, etc.).
 
 ## Testing the Playbook
 
