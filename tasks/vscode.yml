@@ -1,4 +1,9 @@
 ---
+- name: check vscode extensions
+  command: "{{ vscode_util }} --list-extensions"
+  register: extension_list
+
 - name: Install Visual Studio Code Extensions
   command: "{{ vscode_util }} --install-extension {{ item }}"
   with_items: "{{ vscode_extensions }}"
+  when: item not in extension_list.stdout|lower

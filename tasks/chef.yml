@@ -14,9 +14,6 @@
   ignore_errors: yes
   register: get_chefdk
 
-- debug: 
-    msg: "Get {{get_chefdk}}"
-
 # some older ChefDK versions are not available in latest MacOS
 - name: Retry Download with older OS version ({{ansible_distribution_major_version}}.{{ ansible_distribution_version.split('.')[1]|int -1 }})
   get_url: 
@@ -24,10 +21,6 @@
     dest="{{downloads}}/chefdk-{{chefdk_version}}.dmg"
   when: get_chefdk is failed
   register: get_chefdk_older
-
-- debug: 
-    msg: "ChefDK version {{chefdk_version}} was downloaded"
-  when: get_chefdk is changed or get_chefdk_older is changed
 
 - name: Mount ChefDK image
   shell: hdiutil attach "./chefdk-{{chefdk_version}}.dmg" -mountpoint "{{mount_path}}/chefdk-{{chefdk_version}}"
