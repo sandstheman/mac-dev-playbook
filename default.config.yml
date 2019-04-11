@@ -47,6 +47,7 @@ homebrew_installed_packages:
   - nvm
   - openssl
   - packer
+  - pinentry-mac # for GPG signing git commits
   - python3
   - readline
   - reattach-to-user-namespace
