@@ -1,15 +1,18 @@
 ---
 # Create example AWS config files unless they already exist
-- name: Create AWS CLI directory
+- name: Create AWS CLI directories
   file:
-    path: ~/.aws
+    path: ~/.aws/cli
     state: directory
 
 - name: Create file from template if it doesn't exist already.
   copy:
     src: "files/aws/{{ item }}"
     dest: "~/.aws/{{ item }}"
+    mode: 0775
     force: no
   with_items:
     - config
     - credentials
+    - cli/alias
+    - cli/ssh_all.scpt

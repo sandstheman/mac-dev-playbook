@@ -1,0 +1,55 @@
+[toplevel]
+
+find =
+  !f() {
+    aws ec2 describe-instances --profile "${1}" \
+    --filter "Name=tag:Name,Values=*"${2}"*" \
+    --query 'Reservations[].Instances[].[[Tags[?Key==`environment`].Value][0][0], PrivateIpAddress, InstanceId, State.Name, Placement.AvailabilityZone, [Tags[?Key==`project`].Value][0][0], [Tags[?Key==`run_list`].Value][0][0]]' \
+    --output text;
+  }; f
+
+findzone =
+  !f() {
+    aws ec2 describe-instances --profile "${1}" \
+      --filter "Name=tag:Name,Values=*"${2}"*" "Name=availability-zone,Values="${3}"" \
+      --query 'Reservations[].Instances[].[[Tags[?Key==`environment`].Value][0][0], PrivateIpAddress, InstanceId, State.Name, Placement.AvailabilityZone, [Tags[?Key==`project`].Value][0][0], [Tags[?Key==`run_list`].Value][0][0], [Tags[?Key==`Name`].Value][0][0]]' \
+      --output text;
+  }; f
+
+find_ip =
+  !f() {
+    aws ec2 describe-instances --profile "${1}" \
+    --filter "Name=tag:Name,Values=*"${2}"*" \
+    --query 'Reservations[].Instances[].PrivateIpAddress' \
+    --output text;
+  }; f
+
+ssh =
+  !f() {
+    ssh $(aws ec2 describe-instances --profile "${1}" \
+    --filter "Name=tag:Name,Values=*"${2}"*" \
+    --query 'Reservations[].Instances[0].PrivateIpAddress | [0]' \
+    --output text);
+  }; f
+
+# SSH to all IPs using with Terminal & tmux
+ssh-all =
+  !f() {
+    ips=($(aws ec2 describe-instances --profile "${1}" --filter "Name=tag:Name,Values=*"${2}"*" \
+    --query 'Reservations[].Instances[].PrivateIpAddress' --output text))
+    echo "ips=$ips"
+    for ip in ${ips[@]}; do
+      tmux split-window -h "ssh $ip"
+      tmux select-layout even-horizontal
+    done
+  }; f
+
+# SSH to all IPs with iTerm
+sshall =
+  !f() {
+    ips=$(aws ec2 describe-instances --profile "${1}" --filter "Name=tag:Name,Values=*"${2}"*" \
+        "Name=instance-state-name,Values=running" --query 'Reservations[].Instances[].PrivateIpAddress' --output text)
+    echo "Connecting to ${ips//[[:space:]]/,}"
+    osascript -e "say \"connecting to ${1}\""
+    ~/.aws/cli/awssshall.scpt $ips
+  }; f
