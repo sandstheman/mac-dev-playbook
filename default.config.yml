@@ -112,6 +112,7 @@ pip_packages:
   # - name: mkdocs
   #   state: present # present/absent/latest, default: present
   #   version: "0.16.3" # default: N/A
+  - name: aws-shell
   - name: boto3
   - name: powerline-status
   - name: pylint
