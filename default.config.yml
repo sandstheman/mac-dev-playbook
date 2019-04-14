@@ -114,6 +114,7 @@ pip_packages:
   #   version: "0.16.3" # default: N/A
   - name: aws-shell
   - name: boto3
+  - name: netifaces # for powerline status internal IP
   - name: powerline-status
   - name: pylint
 
