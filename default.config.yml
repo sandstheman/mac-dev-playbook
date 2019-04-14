@@ -16,6 +16,7 @@ dotfiles_repo_accept_hostkey: yes
 dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
 dotfiles_files:
   - .gitignore
+  - .config/powerline
   - .osx
   - .vimrc
   - .zshrc
