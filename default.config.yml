@@ -18,6 +18,7 @@ dotfiles_files:
   - .gitignore
   - .config/powerline
   - .osx
+  - .tmux.conf
   - .vimrc
   - .zshrc
 
