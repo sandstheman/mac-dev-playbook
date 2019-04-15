@@ -129,6 +129,8 @@ pip_packages:
     executable: /usr/local/bin/pip3
   - name: pylint
     executable: /usr/local/bin/pip3
+  - name: virtualenv 
+    executable: /usr/local/bin/pip3
 
 # Chef
 chefdk_version: 2.5.3
