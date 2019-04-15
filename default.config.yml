@@ -88,7 +88,7 @@ homebrew_cask_apps:
   - slack
   - spectacle
   - vagrant
-  - virtualbox
+  - { name: virtualbox, install_options: no-quarantine }
   - visual-studio-code
 
 # See `geerlingguy.mas` role documentation for usage instructions.
