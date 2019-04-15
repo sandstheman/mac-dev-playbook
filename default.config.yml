@@ -49,6 +49,7 @@ homebrew_installed_packages:
   - nmap
   - node
   - nvm
+  - om
   - openssl
   - packer
   - pinentry-mac # for GPG signing git commits
@@ -72,6 +73,7 @@ homebrew_taps:
   - caskroom/cask
   - cloudfoundry/tap
   - git-duet/tap
+  - starkandwayne/cf
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
