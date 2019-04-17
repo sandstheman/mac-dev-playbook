@@ -57,6 +57,7 @@ homebrew_installed_packages:
   - readline
   - reattach-to-user-namespace
   - remind101/formulae/assume-role
+  - shellcheck
   - sqlite
   - ssh-copy-id
   - terraform
