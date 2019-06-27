@@ -20,6 +20,17 @@
     - role: geerlingguy.mas
       when: mas_installed_apps
       tags: ['mas']
+    - role: gantsign.oh-my-zsh
+      users:
+        - username: sandeep.jassal1
+          oh-my-zsh:
+            theme: pygmalion
+            plugins:
+              - git
+              - zsh-autosuggestions
+              - zsh-completions
+              - zsh-syntax-highlighting
+      tags: ['zsh']
 
   tasks:
     - include: tasks/ansible-setup.yml
